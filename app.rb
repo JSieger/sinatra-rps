@@ -11,16 +11,35 @@ end
 get("/rock") do
   # 1 = rock, 2 = paper, 3 = scissors
   cpu_move = rand(1..3)
+  move_text = ""
   outcome = ""
 
   if cpu_move == 1
+    move_text = "rock"
     outcome = "tied"
   elsif cpu_move == 2
+    move_text = "paper"
     outcome = "lost"
   else
+    move_text = "scissors"
     outcome = "won"
   end
 
-  pp cpu_move
-  pp outcome
+  "
+  <h2>
+    We played rock!
+  </h2>
+
+  <h2>
+   They played #{move_text}!
+  </h2>
+
+  <h2>
+    We #{outcome}!
+  </h2>
+
+  <a href='/'>
+    Rules
+  </a>
+  "
 end
