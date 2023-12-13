@@ -11,37 +11,21 @@ end
 get("/rock") do
   # 1 = rock, 2 = paper, 3 = scissors
   cpu_move = rand(1..3)
-  move_text = ""
-  outcome = ""
+  @move_text = ""
+  @outcome = ""
 
   if cpu_move == 1
-    move_text = "rock"
-    outcome = "tied"
+    @move_text = "rock"
+    @outcome = "tied"
   elsif cpu_move == 2
-    move_text = "paper"
-    outcome = "lost"
+    @move_text = "paper"
+    @outcome = "lost"
   else
-    move_text = "scissors"
-    outcome = "won"
+    @move_text = "scissors"
+    @outcome = "won"
   end
 
-  "
-  <h2>
-    We played rock!
-  </h2>
-
-  <h2>
-   They played #{move_text}!
-  </h2>
-
-  <h2>
-    We #{outcome}!
-  </h2>
-
-  <a href='/'>
-    Rules
-  </a>
-  "
+  erb(:rock)
 end
 
 get("/paper") do
@@ -114,4 +98,6 @@ get("/scissors") do
     Rules
   </a>
   "
+
+  erb()
 end
